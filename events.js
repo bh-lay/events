@@ -2,7 +2,7 @@
  * @author bh-lay
  * util.events;
  * @github https://github.com/bh-lay/events
- * @modified 2014-4-23 10:06
+ * @modified 2014-5-8 9:55
  * var evevts = new util.events();
  * events.on('ready',function(){
  * 	//do something
@@ -18,32 +18,35 @@
 window.util = window.util || {};
 
 (function(exports){
+	//处理自定义事件
 	function ON(eventName,callback){
+		this._events = this._events || {};
 		//事件堆无该事件，创建一个事件堆
-		if(!this.events[eventName]){
-			this.events[eventName] = [];
+		if(!this._events[eventName]){
+			this._events[eventName] = [];
 		}
-		this.events[eventName].push(callback);
+		this._events[eventName].push(callback);
 		//提供链式调用的支持
 		return this;
 	}
 	function EMIT(eventName,args){
+		this._events = this._events || {};
 		//事件堆无该事件，结束运行
-		if(!this.events[eventName]){
+		if(!this._events[eventName]){
 			return
 		}
-		for(var i=0,total=this.events[eventName].length;i<total;i++){
-			this.events[eventName][i].call(this.event_global || this,args);
+		for(var i=0,total=this._events[eventName].length;i<total;i++){
+			this._events[eventName][i].call(this.event_global || this,args);
 		}
 	}
 	//继承
 	function EXTEND(){
-		this.events = {};
+		this._events = {};
 		this.on = ON;
 		this.emit = EMIT;
 	}
 	function EVENTS(global){
-		this.events = {};
+		this._events = {};
 		this.event_global = global || null;
 		//console.log(this);
 	}
