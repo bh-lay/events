@@ -56,12 +56,12 @@
 		this.event_global = global || null;
 	}
 	EVENTS.prototype = {
-		'on' : ON,
-		'emit' : EMIT
+		on : ON,
+		emit : EMIT
 	};
 	
 	return {
-		'events' : EVENTS,
-		'extend' : EXTEND
+		events : EVENTS,
+		extend : EXTEND
 	};
 });
