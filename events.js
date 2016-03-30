@@ -20,7 +20,7 @@
 	var factory = factoryFn();
 	
 	global.util = global.util || {};
-	global.util.events = factory.events.;
+	global.util.events = factory.events;
 	global.util.events.extend = factory.extend;
 })(window,function(exports){
 
