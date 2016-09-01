@@ -42,18 +42,18 @@
 			return
 		}
 		for(var i=0,total=this._events[eventName].length;i<total;i++){
-			this._events[eventName][i].apply(this.event_global || this,args);
+			this._events[eventName][i].apply(this._event_global || this,args);
 		}
 	}
 	//继承
-	function EXTEND(){
-		this._events = {};
-		this.on = ON;
-		this.emit = EMIT;
+	function EXTEND( global ){
+		global._events = {};
+		global.on = ON;
+		global.emit = EMIT;
 	}
-	function EVENTS(global){
+	function EVENTS( global ){
 		this._events = {};
-		this.event_global = global || null;
+		this._event_global = global || null;
 	}
 	EVENTS.prototype = {
 		on : ON,
