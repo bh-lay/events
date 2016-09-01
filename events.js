@@ -2,16 +2,7 @@
  * @author bh-lay
  * util.events;
  * @github https://github.com/bh-lay/events
- * @modified 2014-5-8 9:55
- * var evevts = new util.events();
- * events.on('ready',function(){
- * 	//do something
- * });
- * events.emit('ready',[args[0],args[1],args[2]]);
- * 
- * or
- * //For your own object extend event
- * util.events.extend(this);
+ * @modified 2016-9-1 18:43
  * 
  */
 
