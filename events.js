@@ -26,7 +26,8 @@
 		//提供链式调用的支持
 		return this;
 	}
-	function EMIT(eventName,args){
+	function EMIT( eventName ){
+		var args = Array.prototype.slice.call( arguments, 1, arguments.length );
 		this._events = this._events || {};
 		//事件堆无该事件，结束运行
 		if(!this._events[eventName]){
